@@ -18,7 +18,6 @@ gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
 # Detect faces
 faces = face_detector(gray)
-
 print(f"[INFO] Detected {len(faces)} face(s).")
 
 for face in faces:
@@ -34,14 +33,26 @@ for face in faces:
     for (x, y) in landmarks_points:
         cv2.circle(image, (x, y), 2, (0, 0, 255), -1)
 
-# --- Show both images ---
-cv2.namedWindow("Facial Landmarks", cv2.WINDOW_NORMAL)
-cv2.resizeWindow("Facial Landmarks", 800, 600)
-cv2.imshow("Facial Landmarks", image)
+# Combine color and grayscale in a single window
+# Convert grayscale to 3-channel so it can be concatenated with color image
+gray_bgr = cv2.cvtColor(gray, cv2.COLOR_GRAY2BGR)
 
-cv2.namedWindow("Grayscale Image", cv2.WINDOW_NORMAL)
-cv2.resizeWindow("Grayscale Image", 800, 600)
-cv2.imshow("Grayscale Image", gray)
+# Ensure both images have same dimensions
+if image.shape != gray_bgr.shape:
+    gray_bgr = cv2.resize(gray_bgr, (image.shape[1], image.shape[0]))
 
-cv2.waitKey(0)
+# Stack them side by side
+combined = np.hstack((image, gray_bgr))
+
+# Display
+window_name = "Facial Landmarks (left) | Grayscale (right)"
+cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
+cv2.resizeWindow(window_name, 1200, 600)
+cv2.imshow(window_name, combined)
+print("[INFO] Press 'q' to close the window.")
+# Keep window open until 'q' key is pressed
+while True:
+    key = cv2.waitKey(1) & 0xFF
+    if key == ord('q'):
+        break
 cv2.destroyAllWindows()
