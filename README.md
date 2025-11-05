@@ -1,4 +1,4 @@
-# Facial Emotion Detection
+# Facial Emotion Detection using Computer Vision
 
 ## Overview
 This project detects **human emotions** from facial expressions using a **hybrid Computer Vision + Machine Learning** approach.  
