@@ -1,4 +1,4 @@
-# 🧠 Facial Emotion Detection (Hybrid CV + ML)
+# Facial Emotion Detection
 
 ## Overview
 This project detects **human emotions** from facial expressions using a **hybrid Computer Vision + Machine Learning** approach.  
@@ -8,18 +8,18 @@ We use **OpenCV** and **dlib** for facial feature detection, and extracted geome
 
 ## ⚙️ Setup Instructions
 
-### 1️⃣ Clone the repository
+### 1. Clone the repository
 ```bash
-git clone https://github.com/<your-username>/cv843-emotion-detection.git
-cd cv843-emotion-detection
+git clone https://github.com/zuhairhk/CV-human-facial-detection.git
+cd CV-human-facial-detection
 ```
 
-### 2️⃣ Create a virtual environment
+### 2. Create a virtual environment
 ```bash
 python3 -m venv .venv
 ```
 
-### 3️⃣ Activate the virtual environment
+### 3. Activate the virtual environment
 - **Linux / macOS**
   ```bash
   source .venv/bin/activate
@@ -33,41 +33,13 @@ You should now see `(.venv)` appear before your terminal prompt.
 
 ---
 
-### 4️⃣ Install dependencies
+### 4. Install dependencies
 ```bash
 pip install opencv-python dlib numpy imutils scikit-learn matplotlib
 ```
 
-> 🧩 If `dlib` fails to install, make sure you have build tools:
-> ```bash
-> sudo apt install cmake g++ python3-dev
-> ```
-
 ---
 
-### 5️⃣ Download required model file
-Download the pre-trained facial landmark model:
-
-📦 **[shape_predictor_68_face_landmarks.dat](https://github.com/davisking/dlib-models/raw/master/shape_predictor_68_face_landmarks.dat.bz2)**  
-Then extract it:
-```bash
-bunzip2 shape_predictor_68_face_landmarks.dat.bz2
-```
-and place it in the **root** of this project directory.
-
----
-
-## ▶️ Running the Code
-
-### Detect facial landmarks in an image:
-```bash
-python detect_landmarks.py --image path/to/image.jpg
-```
-
-### (Optional) Real-time webcam test:
-```bash
-python detect_landmarks_live.py
-```
 
 ---
 
