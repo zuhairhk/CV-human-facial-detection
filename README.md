@@ -43,7 +43,7 @@ pip install opencv-python dlib numpy imutils scikit-learn matplotlib
 
 ---
 
-## 🔁 Reactivating the Environment (Every Time You Work)
+## Reactivating the Environment
 
 Each time you reopen the project:
 ```bash
