@@ -34,7 +34,14 @@ for face in faces:
     for (x, y) in landmarks_points:
         cv2.circle(image, (x, y), 2, (0, 0, 255), -1)
 
-# Show output
+# --- Show both images ---
+cv2.namedWindow("Facial Landmarks", cv2.WINDOW_NORMAL)
+cv2.resizeWindow("Facial Landmarks", 800, 600)
 cv2.imshow("Facial Landmarks", image)
+
+cv2.namedWindow("Grayscale Image", cv2.WINDOW_NORMAL)
+cv2.resizeWindow("Grayscale Image", 800, 600)
+cv2.imshow("Grayscale Image", gray)
+
 cv2.waitKey(0)
 cv2.destroyAllWindows()
